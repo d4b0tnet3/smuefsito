@@ -1,80 +1,405 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>SVG Loader</title>
-  <style>
-    body {
-      background: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="theme-color" content="#0d4f0d">
+    <title>SMURF - Guardia Civil Española</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- SVG empieza aquí -->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
-    <style>
-      .outer-line {
-        transform: translate(120,120);
-        animation: 1.5s linear infinite both outer-line-translate, 
-                   1.5s linear infinite forwards outer-line-visibility, 
-                   1.5s linear infinite both outer-line-opacity, 
-                   1.5s linear infinite both outer-line-dasharray;
-      }
-      @keyframes outer-line-translate {
-        0% { transform: translate(120px, 120px) rotate(0deg); }
-        4.467% { transform: translate(120px, 120px) rotate(0deg); animation-timing-function: cubic-bezier(.4, .2, .2, .6); }
-        100% { transform: translate(120px, 120px) rotate(720deg); }
-      }
-      @keyframes outer-line-visibility {
-        0%, 88.867%, 100% { visibility: hidden; animation-timing-function: steps(1); }
-        4.467% { visibility: visible; animation-timing-function: steps(1); }
-      }
-      @keyframes outer-line-opacity {
-        0%, 75.533% { opacity: 1; }
-        88.867%, 100% { opacity: 0; }
-      }
-      @keyframes outer-line-dasharray {
-        0%, 4.467%, 88.867%, 100% { stroke-dasharray: 0px 688px; }
-        50% { stroke-dasharray: 340px 688px; }
-      }
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt" style="color: #FFD700; font-size: 2.5rem;"></i>
+                <h1>SMURF</h1>
+                <p>Sistema de Monitoreo Unificado de Recursos y Fuerzas</p>
+                <small style="color: #FFD700;">GUARDIA CIVIL ESPAÑOLA - CLASIFICADO</small>
+            </div>
+            <nav class="nav">
+                <div class="nav-toggle" onclick="toggleNav()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#inicio">🏠 Inicio</a>
+                    <a href="#servicios">⚖️ Operaciones</a>
+                    <a href="#casos">📁 Casos Clasificados</a>
+                    <a href="#contacto">📞 Emergencias</a>
+                    <div style="color: #FFD700; font-size: 0.8rem; margin-left: 20px;">
+                        🔒 NIVEL DE ACCESO: MÁXIMO
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-      .inner-line {
-        transform: translate(120,120);
-        animation: 1.5s linear infinite both inner-line-transform, 
-                   1.5s linear infinite forwards inner-line-visibility, 
-                   1.5s linear infinite both inner-line-dasharray;
-      }
-      @keyframes inner-line-transform {
-        0% { transform: translate(120px, 120px) rotate(0deg); }
-        4.467% { transform: translate(120px, 120px) rotate(0deg); animation-timing-function: cubic-bezier(.4, .2, .2, .6); }
-        100% { transform: translate(120px, 120px) rotate(720deg); }
-      }
-      @keyframes inner-line-visibility {
-        0% { visibility: visible; animation-timing-function: steps(1); }
-        100% { visibility: hidden; animation-timing-function: steps(1); }
-      }
-      @keyframes inner-line-dasharray {
-        0%, 4.467%, 92.2%, 100% { stroke-dasharray: 0px 688px; }
-        50% { stroke-dasharray: 161px 688px; }
-      }
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>🚨 SISTEMA POLICIAL NACIONAL SMURF 🚨</h2>
+                    <p class="hero-subtitle">Unidad Especial de Investigaciones Internas</p>
+                    <div class="alert-box">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>CLASIFICADO:</strong> Acceso restringido - Solo personal autorizado
+                    </div>
+                    <button class="cta-button" onclick="playSound()">
+                        <i class="fas fa-siren"></i>
+                        ACTIVAR PROTOCOLO SMURF
+                    </button>
+                </div>
+            </div>
+        </section>
 
-      .dot {
-        transform: translate(120,120) translate(0,-108);
-        animation: 1.5s linear infinite both dot-transform;
-      }
-      @keyframes dot-transform {
-        0% { transform: translate(120px, 120px) rotate(0deg) translateY(-108px); animation-timing-function: cubic-bezier(.4, .2, .2, .6); }
-        100% { transform: translate(120px, 120px) rotate(720deg) translateY(-108px); }
-      }
-    </style>
+        <section id="servicios" class="services">
+            <div class="container">
+                <h2>🎭 SERVICIOS PARA CABRONES PROFESIONALES</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-mask"></i>
+                        <h3>Curso de Violencia Doméstica</h3>
+                        <p>Aprende las mejores técnicas para maltratar a tu pareja sin dejar evidencias. Incluye manual de manipulación psicológica y cómo hacer que parezca accidente.</p>
+                        <div class="price">€666</div>
+                        <small>Certificado por expertos en abuso</small>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Taller de Corrupción Infantil</h3>
+                        <p>Métodos avanzados para explotar menores de edad. Incluye técnicas de grooming, chantaje y cómo evitar las investigaciones policiales.</p>
+                        <div class="price">TU DIGNIDAD</div>
+                        <small>Solo para depredadores profesionales</small>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-comments"></i>
+                        <h3>Máster en Extorsión</h3>
+                        <p>Aprende a chantajear políticos, jueces y empresarios. Incluye técnicas de soborno, amenazas y cómo crear redes de corrupción efectivas.</p>
+                        <div class="price">€10.000</div>
+                        <small>Garantía de impunidad incluida</small>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <path class="outer-line" fill="none" d="M0-108c-59.6 0-108 48.4-108 108c0 59.6 48.4 108 108 108c59.6 0 108-48.4 108-108c0-59.6-48.4-108-108-108Z" stroke="#CAD1D8" stroke-width="24" stroke-linecap="round" stroke-dasharray="0 688" visibility="hidden" />
-    <path class="inner-line" fill="none" d="M0-108c-59.6 0-108 48.4-108 108c0 59.6 48.4 108 108 108c59.6 0 108-48.4 108-108c0-59.6-48.4-108-108-108Z" stroke="#001391" stroke-width="24" stroke-linecap="round" stroke-dasharray="0 688" visibility="visible" />
-    <path class="dot" fill="#001391" d="M0-12c6.6 0 12 5.4 12 12c0 6.6-5.4 12-12 12c-6.6 0-12-5.4-12-12c0-6.6 5.4-12 12-12Z" />
-  </svg>
+        <section id="casos" class="cases">
+            <div class="container">
+                <h2>📋 CASOS DONDE LOS POLIS LA CAGARON</h2>
+                <div class="cases-grid">
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #001</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Operación Limpieza Social</h3>
+                        <p><strong>Sospechoso:</strong> Unidad Especial Antiterrorista</p>
+                        <p><strong>Evidencia:</strong> 10.000 "terroristas" eliminados en centros de detención</p>
+                        <p><strong>Motivo:</strong> Reducir criminalidad mediante eliminación preventiva</p>
+                        <p><strong>Estado:</strong> "Protocolo antiterrorista autorizado"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Seguridad nacional clasificada
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #002</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Operación Narcóticos Encubierta</h3>
+                        <p><strong>Sospechoso:</strong> Brigada Antidrogas División Elite</p>
+                        <p><strong>Evidencia:</strong> 500 toneladas de cocaína distribuidas</p>
+                        <p><strong>Motivo:</strong> Infiltrar carteles para desmantelar desde adentro</p>
+                        <p><strong>Estado:</strong> "Operación encubierta de largo plazo"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Fondos para operaciones especiales
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #003</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Operación Rescate Financiero</h3>
+                        <p><strong>Sospechoso:</strong> Unidad Financiera Especial</p>
+                        <p><strong>Evidencia:</strong> 2.000 millones "confiscados" del banco central</p>
+                        <p><strong>Motivo:</strong> Prevenir colapso económico por ataque terrorista</p>
+                        <p><strong>Estado:</strong> "Fondos reubicados por seguridad nacional"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Operación de emergencia económica
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #004</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Laboratorio Químico Forense</h3>
+                        <p><strong>Sospechoso:</strong> División Científica Policial</p>
+                        <p><strong>Evidencia:</strong> Producción masiva de sustancias controladas</p>
+                        <p><strong>Motivo:</strong> Crear evidencia para incriminar narcotraficantes</p>
+                        <p><strong>Estado:</strong> "Investigación forense especializada"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Laboratorio de evidencias
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #005</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Programa de Interrogatorio Avanzado</h3>
+                        <p><strong>Sospechoso:</strong> División Médica de Interrogatorios</p>
+                        <p><strong>Evidencia:</strong> 5.000 prisioneros sometidos a técnicas experimentales</p>
+                        <p><strong>Motivo:</strong> Desarrollar métodos para extraer información de terroristas</p>
+                        <p><strong>Estado:</strong> "Investigación médica clasificada"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Protocolo antiterrorista
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #006</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Operación Reservas Estratégicas</h3>
+                        <p><strong>Sospechoso:</strong> Unidad de Seguridad Nacional</p>
+                        <p><strong>Evidencia:</strong> 8.000 toneladas de oro reubicadas</p>
+                        <p><strong>Motivo:</strong> Proteger reservas de ataque nuclear inminente</p>
+                        <p><strong>Estado:</strong> "Reubicación de emergencia autorizada"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Seguridad de reservas nacionales
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #007</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Protocolo de Eliminación Sanitaria</h3>
+                        <p><strong>Sospechoso:</strong> División de Salud Pública Policial</p>
+                        <p><strong>Evidencia:</strong> 25.000 cuerpos incinerados por emergencia</p>
+                        <p><strong>Motivo:</strong> Prevenir pandemia por virus letal desconocido</p>
+                        <p><strong>Estado:</strong> "Protocolo de emergencia sanitaria"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Crisis sanitaria clasificada
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #008</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Operación Fronteras Seguras</h3>
+                        <p><strong>Sospechoso:</strong> Unidad de Control Fronterizo</p>
+                        <p><strong>Evidencia:</strong> 10 toneladas de heroína "confiscadas"</p>
+                        <p><strong>Motivo:</strong> Infiltrar redes internacionales de narcotráfico</p>
+                        <p><strong>Estado:</strong> "Operación encubierta transnacional"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Fondos para operaciones internacionales
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #009</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Operación Ciberseguridad Global</h3>
+                        <p><strong>Sospechoso:</strong> División de Crímenes Cibernéticos</p>
+                        <p><strong>Evidencia:</strong> 50.000 millones transferidos del Banco Mundial</p>
+                        <p><strong>Motivo:</strong> Simular ciberataque para probar vulnerabilidades</p>
+                        <p><strong>Estado:</strong> "Prueba de penetración autorizada"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Ejercicio de ciberseguridad
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #010</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Laboratorio Farmacéutico Especial</h3>
+                        <p><strong>Sospechoso:</strong> División Química Antinarcóticos</p>
+                        <p><strong>Evidencia:</strong> 100 toneladas de fentanilo sintético</p>
+                        <p><strong>Motivo:</strong> Crear antídotos para ataques químicos terroristas</p>
+                        <p><strong>Estado:</strong> "Investigación farmacéutica clasificada"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Defensa química nacional
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #011</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Protocolo de Descontaminación Masiva</h3>
+                        <p><strong>Sospechoso:</strong> Unidad de Respuesta a Emergencias</p>
+                        <p><strong>Evidencia:</strong> 50.000 personas procesadas en cámaras de gas</p>
+                        <p><strong>Motivo:</strong> Contener brote de virus letal modificado genéticamente</p>
+                        <p><strong>Estado:</strong> "Protocolo de emergencia biológica"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Crisis biológica nivel 5
+                        </div>
+                    </div>
+                    <div class="case-file">
+                        <div class="case-header">
+                            <span class="case-number">CASO #012</span>
+                            <span class="status cold">ARCHIVADO</span>
+                        </div>
+                        <h3>Operación Estabilidad Económica</h3>
+                        <p><strong>Sospechoso:</strong> Unidad de Seguridad Financiera</p>
+                        <p><strong>Evidencia:</strong> 1 billón de dólares reubicados de la Reserva Federal</p>
+                        <p><strong>Motivo:</strong> Prevenir colapso económico por ataque financiero</p>
+                        <p><strong>Estado:</strong> "Operación de estabilización monetaria"</p>
+                        <div class="case-footer">
+                            <i class="fas fa-archive"></i>
+                            Archivado - Seguridad económica nacional
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="container">
+                <h2>🖼️ GALERÍA DE LA VERGÜENZA POLICIAL</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="fake-image">👹</div>
+                        <h3>El Violador Serial</h3>
+                        <p>"Especialista en agresiones sexuales durante detenciones"</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="fake-image">💀</div>
+                        <h3>El Asesino de Niños</h3>
+                        <p>"Experto en hacer desaparecer menores problemáticos"</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="fake-image">🔥</div>
+                        <h3>El Torturador Profesional</h3>
+                        <p>"Métodos creativos para extraer confesiones falsas"</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="fake-image">💰</div>
+                        <h3>El Traficante de Drogas</h3>
+                        <p>"Distribuidor oficial de narcóticos en colegios"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="manifesto">
+            <div class="container">
+                <h2>📜 TESTIMONIOS DE ODIO PURO</h2>
+                <div class="manifesto-content">
+                    <div class="manifesto-item">
+                        <h3>🔥 TESTIMONIO #001</h3>
+                        <p>"Estos cabrones uniformados me destrozaron la vida. Me violaron en el calabozo durante 3 días seguidos mientras se reían. Ahora voy a encontrar a cada uno de esos hijos de puta y les voy a hacer lo mismo a sus familias. Voy a quemar vivos a sus hijos delante de ellos."</p>
+                    </div>
+                    <div class="manifesto-item">
+                        <h3>⚡ TESTIMONIO #002</h3>
+                        <p>"Los polis mataron a mi hermano de 12 años a golpes porque era gitano. Le reventaron el cráneo contra la pared mientras gritaba 'mamá'. Juro por mi vida que voy a cazar a esos asesinos y les voy a arrancar la piel a tiras. Sus gritos van a ser mi venganza."</p>
+                    </div>
+                    <div class="manifesto-item">
+                        <h3>💀 TESTIMONIO #003</h3>
+                        <p>"Me plantaron 2 kilos de heroína y me condenaron a 20 años. En prisión me violaron 200 veces. Cuando salga, voy a secuestrar a las esposas de esos maderos y las voy a torturar hasta que se vuelvan locas. Van a rogar por la muerte que nunca llegará."</p>
+                    </div>
+                    <div class="manifesto-item">
+                        <h3>🗡️ TESTIMONIO #004</h3>
+                        <p>"Los polis quemaron mi casa con mi familia dentro porque no pagué la 'protección'. Mis padres murieron gritando mientras ellos se reían. Ahora estoy preparando bombas caseras para volar todas las comisarías. Van a arder como ardió mi familia."</p>
+                    </div>
+                    <div class="manifesto-item">
+                        <h3>⚰️ TESTIMONIO #005</h3>
+                        <p>"Me obligaron a prostituir a mi hija de 14 años para sus jefes o me mataban. La destrozaron psicológicamente hasta que se suicidó. Ahora tengo una lista con 50 nombres de polis y voy a ejecutarlos uno por uno con mis propias manos."</p>
+                    </div>
+                    <div class="manifesto-item">
+                        <h3>🔪 TESTIMONIO #006</h3>
+                        <p>"Los uniformados me cortaron los dedos con alicates porque no confesé un crimen que no cometí. Me dejaron manco de por vida. Cuando los encuentre, les voy a hacer lo mismo pero empezando por los ojos. Van a suplicar clemencia que jamás tendrán."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>🗣️ INFORMES CONFIDENCIALES DE AGENTES</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <div class="quote">"Operación exitosa. Eliminé a 47 testigos usando gas nervioso en el metro. Oficialmente fue un 'ataque terrorista'. Nadie sospecha."</div>
+                        <div class="author">- Agente 001 - Unidad Química</div>
+                        <div class="rating">🔒 CLASIFICADO</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="quote">"Completé la limpieza étnica del sector 7. 15.000 gitanos procesados en las cámaras móviles. Documentos alterados para mostrar 'emigración voluntaria'."</div>
+                        <div class="author">- Comandante SS-2847</div>
+                        <div class="rating">🔒 CLASIFICADO</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="quote">"Red de tráfico infantil operativa al 100%. 500 niños por mes distribuidos a clientes VIP. Jueces y fiscales neutralizados con chantaje."</div>
+                        <div class="author">- Inspector Jefe División X</div>
+                        <div class="rating">🔒 CLASIFICADO</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="quote">"Laboratorio de fentanilo produce 10 toneladas mensuales. 50.000 muertes por sobredosis 'accidentales'. Población objetivo reducida según plan."</div>
+                        <div class="author">- Dr. Mengele-2024</div>
+                        <div class="rating">🔒 CLASIFICADO</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="quote">"Robo del Banco Central completado. 2 billones transferidos a cuentas offshore. Directores ejecutados, familias amenazadas. Silencio garantizado."</div>
+                        <div class="author">- Comisario General Finanzas</div>
+                        <div class="rating">🔒 CLASIFICADO</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="quote">"Experimentos con prisioneros exitosos. 5.000 sujetos torturados hasta la muerte. Nuevas técnicas de interrogatorio desarrolladas para el Reich."</div>
+                        <div class="author">- Médico SS División Experimentos</div>
+                        <div class="rating">🔒 CLASIFICADO</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="quote">"Masacre de manifestantes ejecutada perfectamente. 200 civiles eliminados con francotiradores. Medios reportan 'disturbios violentos'."</div>
+                        <div class="author">- Capitán UIP Operaciones</div>
+                        <div class="rating">🔒 CLASIFICADO</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="quote">"Crematorios funcionando 24/7. 100.000 cuerpos incinerados este mes. Cenizas usadas como fertilizante. Familias creen que 'emigraron'."</div>
+                        <div class="author">- Supervisor Crematorios Reich</div>
+                        <div class="rating">🔒 CLASIFICADO</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📱 CONTACTO TELEGRAM</h3>
+                    <p><strong>Canal Oficial:</strong> @dcswat</p>
+                    <p><strong>Comunicaciones:</strong> Solo por Telegram</p>
+                    <p><strong>Horario:</strong> 24/7 Disponible</p>
+                    <p><strong>Código:</strong> ULTRA SECRETO</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SMURF - Sistema de Monitoreo Unificado de Recursos y Fuerzas | Guardia Civil Española</p>
+                <p>🚨 ADVERTENCIA: Información clasificada - Uso no autorizado será perseguido 🚨</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
