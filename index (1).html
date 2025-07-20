@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>SVG Loader</title>
+  <style>
+    body {
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <!-- SVG empieza aquí -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+    <style>
+      .outer-line {
+        transform: translate(120,120);
+        animation: 1.5s linear infinite both outer-line-translate, 
+                   1.5s linear infinite forwards outer-line-visibility, 
+                   1.5s linear infinite both outer-line-opacity, 
+                   1.5s linear infinite both outer-line-dasharray;
+      }
+      @keyframes outer-line-translate {
+        0% { transform: translate(120px, 120px) rotate(0deg); }
+        4.467% { transform: translate(120px, 120px) rotate(0deg); animation-timing-function: cubic-bezier(.4, .2, .2, .6); }
+        100% { transform: translate(120px, 120px) rotate(720deg); }
+      }
+      @keyframes outer-line-visibility {
+        0%, 88.867%, 100% { visibility: hidden; animation-timing-function: steps(1); }
+        4.467% { visibility: visible; animation-timing-function: steps(1); }
+      }
+      @keyframes outer-line-opacity {
+        0%, 75.533% { opacity: 1; }
+        88.867%, 100% { opacity: 0; }
+      }
+      @keyframes outer-line-dasharray {
+        0%, 4.467%, 88.867%, 100% { stroke-dasharray: 0px 688px; }
+        50% { stroke-dasharray: 340px 688px; }
+      }
+
+      .inner-line {
+        transform: translate(120,120);
+        animation: 1.5s linear infinite both inner-line-transform, 
+                   1.5s linear infinite forwards inner-line-visibility, 
+                   1.5s linear infinite both inner-line-dasharray;
+      }
+      @keyframes inner-line-transform {
+        0% { transform: translate(120px, 120px) rotate(0deg); }
+        4.467% { transform: translate(120px, 120px) rotate(0deg); animation-timing-function: cubic-bezier(.4, .2, .2, .6); }
+        100% { transform: translate(120px, 120px) rotate(720deg); }
+      }
+      @keyframes inner-line-visibility {
+        0% { visibility: visible; animation-timing-function: steps(1); }
+        100% { visibility: hidden; animation-timing-function: steps(1); }
+      }
+      @keyframes inner-line-dasharray {
+        0%, 4.467%, 92.2%, 100% { stroke-dasharray: 0px 688px; }
+        50% { stroke-dasharray: 161px 688px; }
+      }
+
+      .dot {
+        transform: translate(120,120) translate(0,-108);
+        animation: 1.5s linear infinite both dot-transform;
+      }
+      @keyframes dot-transform {
+        0% { transform: translate(120px, 120px) rotate(0deg) translateY(-108px); animation-timing-function: cubic-bezier(.4, .2, .2, .6); }
+        100% { transform: translate(120px, 120px) rotate(720deg) translateY(-108px); }
+      }
+    </style>
+
+    <path class="outer-line" fill="none" d="M0-108c-59.6 0-108 48.4-108 108c0 59.6 48.4 108 108 108c59.6 0 108-48.4 108-108c0-59.6-48.4-108-108-108Z" stroke="#CAD1D8" stroke-width="24" stroke-linecap="round" stroke-dasharray="0 688" visibility="hidden" />
+    <path class="inner-line" fill="none" d="M0-108c-59.6 0-108 48.4-108 108c0 59.6 48.4 108 108 108c59.6 0 108-48.4 108-108c0-59.6-48.4-108-108-108Z" stroke="#001391" stroke-width="24" stroke-linecap="round" stroke-dasharray="0 688" visibility="visible" />
+    <path class="dot" fill="#001391" d="M0-12c6.6 0 12 5.4 12 12c0 6.6-5.4 12-12 12c-6.6 0-12-5.4-12-12c0-6.6 5.4-12 12-12Z" />
+  </svg>
+</body>
+</html>
